@@ -4,7 +4,7 @@ import java.util.Set;
 public class Vertice {
 	private String dato;
 	private GrafoNoDirigido.TipoNodo tipo;
-	private Set<Vertice> conexiones; // Tenemos que decidir si son Nodos (Usuario/Gusto) o direcciones (Hashmap, clave->valor)
+	private Set<Vertice> conexiones;
 	
 	public Vertice(GrafoNoDirigido.TipoNodo tipo, String dato){
 		this.tipo = tipo;
@@ -23,7 +23,7 @@ public class Vertice {
 	}
 
 	@Override
-	public boolean equals(Object obj) {  // Compara por el tipo.
+	public boolean equals(Object obj) {  
 		if (this == obj)
 			return true;
 		if (obj == null)

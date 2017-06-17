@@ -92,7 +92,6 @@ public class GrafoNoDirigido implements IGrafo {
 		S.add(usuarioInicial); 
 		Map<Vertice, Integer> D = new HashMap<>(); 
 		for (Vertice i : usuarios.values()) {
-			System.out.println("algo: " + i.getDato());
 			if (i.equals(usuarioInicial)) { 
 				continue;
 			}
@@ -123,7 +122,6 @@ public class GrafoNoDirigido implements IGrafo {
 		Vertice usuarioMasLejano = null;
 
 		for (Map.Entry<Vertice, Integer> m : D.entrySet()) {
-			System.out.println(m.getValue() + " dato: " + m.getKey().getDato());
 			if (m.getValue() > longestDistancia) {
 				longestDistancia = m.getValue();
 
@@ -158,6 +156,19 @@ public class GrafoNoDirigido implements IGrafo {
 			}
 		}
 		return Integer.MAX_VALUE;
+	}
+	public void addDatos(ArrayList<String[]> lista) {
+		
+		for (String[] strings : lista) {
+			this.addUsuario(strings[0]);
+			ArrayList<String> li = new ArrayList<>();
+			for(int i = 1; i< strings.length;i++){
+				li.add(strings[i]);
+			}
+			this.setConexiones(strings[0], li);
+		
+		}
+		
 	}
 
 }
